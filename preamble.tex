@@ -24,8 +24,12 @@
 % Need more text:
 \usepackage[margin=1in]{geometry}
 
-%\usepackage{t1enc}
+% Allow sections to be processed on their own
+\usepackage{subfiles}
+
 \usepackage{graphicx}
+\graphicspath{{media/}{../media/}} % so that section files can also find the images
+
 \usepackage{verbatim}
 % The fixltx2e that was used for textsubscript is no longer needed for pdf, but is needed by latexml
 \ifpdf

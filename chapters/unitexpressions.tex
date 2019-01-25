@@ -1,3 +1,6 @@
+\documentclass[../MLS.tex]{subfiles}
+\begin{document}
+
 \chapter{Unit Expressions}\doublelabel{unit-expressions}
 
 Unless otherwise stated, the syntax and semantics of unit expressions in
@@ -15,10 +18,10 @@ Examples for the syntax of unit expressions used in Modelica: "N.m",
 \begin{lstlisting}[language=grammar]
 unit_expression:
    unit_numerator [ "/" unit_denominator ]
-   
+
 unit_numerator:
    "1" | unit_factors | "(" unit_expression ")"
-   
+
 unit_denominator:
    unit_factor | "(" unit_expression ")"
 \end{lstlisting}
@@ -97,3 +100,5 @@ includes the prefix.
 The unit expression "T" means Tesla, but note that the letter "T" is
 also the symbol for the prefix tera which has a multiplier value of
 10\textsuperscript{12}.
+
+\end{document}

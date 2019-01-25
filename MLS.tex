@@ -1,6 +1,10 @@
 \documentclass[10pt,a4paper]{report}
 \usepackage[utf8]{inputenc}
 \NeedsTeXFormat{LaTeX2e}
+% Define path Preamble
+\makeatletter
+\def\input@path{{../}}
+\makeatother
 \input{preamble.tex}
 % The other parts start on new page and could be optionally included
 
@@ -9,90 +13,91 @@
 \maketitle
 
 % Abstract
-\input{chapters/abstract}
+\subfile{chapters/abstract}
 
 % Preface
-\input{chapters/preface}
+\subfile{chapters/preface}
 
 % Introduction
-\input{chapters/introduction}
+\subfile{chapters/introduction}
 
 % Lexical Structure
-\input{chapters/lexicalstructure}
+\subfile{chapters/lexicalstructure}
 
 % Operators and Expressions
-\input{chapters/operatorsandexpressions}
+\subfile{chapters/operatorsandexpressions}
 
 % Classes, Predefined Types, and Declarations
-\input{chapters/classes}
+\subfile{chapters/classes}
 
 % Scoping, Name Lookup, and Flattening
-\input{chapters/scoping}
+\subfile{chapters/scoping}
 
 % Interface or Type Relationships
-\input{chapters/interface}
+\subfile{chapters/interface}
 
 % Inheritance, Modification, and Redeclaration
-\input{chapters/inheritance}
+\subfile{chapters/inheritance}
 
 % Equations
-\input{chapters/equations}
+\subfile{chapters/equations}
 
 % Connectors and Connections
-\input{chapters/connectors}
+\subfile{chapters/connectors}
 
 % Arrays
-\input{chapters/arrays}
+\subfile{chapters/arrays}
 
 % Statements and Algorithm Chapters
-\input{chapters/statements}
+\subfile{chapters/statements}
 
 % Functions
-\input{chapters/functions}
+\subfile{chapters/functions}
 
 % Packages
-\input{chapters/packages}
+\subfile{chapters/packages}
 
 % Overloaded Operators
-\input{chapters/overloaded}
+\subfile{chapters/overloaded}
 
 % Stream Connectors
-\input{chapters/stream}
+\subfile{chapters/stream}
 
 % Synchronous Language Elements
-\input{chapters/synchronous}
+\subfile{chapters/synchronous}
 
 % State Machines
-\input{chapters/statemachines}
+\subfile{chapters/statemachines}
 
 % Annotations
-\input{chapters/annotations}
+\subfile{chapters/annotations}
 
 % Unit Expressions
-\input{chapters/unitexpressions}
+\subfile{chapters/unitexpressions}
 
 % The Modelica Standard Library
-\input{chapters/library}
+\subfile{chapters/library}
 
 \appendix
 % https://tex.stackexchange.com/questions/370384/change-toc-depth-mid-document
 \addtocontents{toc}{\setcounter{tocdepth}{0}}
 
 % Glossary
-\input{chapters/glossary}
+\subfile{chapters/glossary}
 
 % Modelica Concrete Syntax
-\input{chapters/syntax}
+\subfile{chapters/syntax}
 
 % Modelica DAE Representation}
-\input{chapters/dae}
+\subfile{chapters/dae}
 
 % Derivation of Stream Equations
-\input{chapters/derivationofstream}
+\subfile{chapters/derivationofstream}
 
 % Modelica Revision History
-\input{chapters/revisions}
+\subfile{chapters/revisions}
 
 % Literature
-\input{chapters/literature}
+\subfile{chapters/literature}
+
 \end{document}

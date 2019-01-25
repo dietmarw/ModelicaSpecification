@@ -1,3 +1,6 @@
+\documentclass[../MLS.tex]{subfiles}
+\begin{document}
+
 \chapter{Functions}\doublelabel{functions}
 
 This chapter describes the Modelica function construct.
@@ -18,21 +21,21 @@ the following schematic function example:}
 
 \begin{lstlisting}[language=modelica,escapechar=!]
 function  !\emph{functionname}!
-  input  TypeI1 in1;  
+  input  TypeI1 in1;
   input  TypeI2 in2;
-  input  TypeI3 in3 := !\emph{default\_expr1}! "Comment" annotation(...);   
-  ...   
+  input  TypeI3 in3 := !\emph{default\_expr1}! "Comment" annotation(...);
+  ...
   output TypeO1 out1;
   output TypeO2 out2 :=  !\emph{default\_expr2}!;
-  ... 
-protected   
-  !\emph{\textless{}local variables\textgreater{}}!   
-  ... 
-algorithm   
-  ...   
-    !\emph{\textless{}statements\textgreater{}}!   
-  ... 
-end !\emph{functionname}!; 
+  ...
+protected
+  !\emph{\textless{}local variables\textgreater{}}!
+  ...
+algorithm
+  ...
+    !\emph{\textless{}statements\textgreater{}}!
+  ...
+end !\emph{functionname}!;
 \end{lstlisting}
 
 {]}
@@ -49,7 +52,7 @@ following is also a legal functio}n:
 
 \begin{lstlisting}[language=modelica,escapechar=!]
 function  !\emph{functionname}!
-end !\emph{functionname}!; 
+end !\emph{functionname}!;
 \end{lstlisting}
 {]}
 
@@ -1030,7 +1033,7 @@ package Motors
   equation
     ...
   end Motor;
-  
+
   record MotorI123 = MotorData( // data of a specific motor
     inertia = 0.001,
     nominalTorque = 10,
@@ -1368,7 +1371,7 @@ end ThermodynamicState_der;
 function density
   input ThermodynamicState state "Thermodynamic state";
   output Density d "Density";
-algorithm 
+algorithm
   ...
   annotation(derivative=density_der);
 end density;
@@ -1377,7 +1380,7 @@ function density_der
   input ThermodynamicState state "Thermodynamic state";
   input ThermodynamicState_der state_der;
   output DensityDerivative d "Density derivative";
-algorithm 
+algorithm
   ...
 end density_der;
 
@@ -1746,7 +1749,7 @@ Arguments of \emph{simple} types are by default mapped as follows for C:
 
 \begin{longtable}[]{|l|l|l|}
 \hline
-\emph{Modelica} & \multicolumn{2}{c|}{\emph{C}}\\ 
+\emph{Modelica} & \multicolumn{2}{c|}{\emph{C}}\\
 & \emph{Input} & \emph{Output}\\ \hline
 \endhead
 Real & double & double *\\ \hline
@@ -1785,7 +1788,7 @@ Arguments of simple types are by default mapped as follows for FORTRAN
 
 \begin{longtable}[]{|l|l|l|}
 \hline
-\emph{Modelica} & \multicolumn{2}{c|}{FORTRAN 77}\\ 
+\emph{Modelica} & \multicolumn{2}{c|}{FORTRAN 77}\\
 & \emph{Input} & \emph{Output}\\ \hline
 \endhead
 Real & DOUBLE PRECISION & DOUBLE PRECISION\\ \hline
@@ -2256,28 +2259,28 @@ libraries or object libraries that are later transformed to a shared
 library):}
 
 \begin{lstlisting}[language=C]
-// File ExternalFunc2.h 
-#ifdef __cplusplus 
-extern "C" { 
-#endif 
-#ifdef _MSC_VER 
-#ifdef EXTERNAL_FUNCTION_EXPORT 
-#  define EXTLIB2_EXPORT __declspec( dllexport ) 
-#else  
-#  define EXTLIB2_EXPORT __declspec( dllimport ) 
-#endif 
-#elif  __GNUC__ >= 4     
-  /* In gnuc, all symbols are by default exported. It is still often useful,         
-  to not export all symbols but only the needed ones */ 
-#  define EXTLIB2_EXPORT __attribute__ ((visibility("default"))) 
-#else 
-#  define EXTLIB2_EXPORT 
+// File ExternalFunc2.h
+#ifdef __cplusplus
+extern "C" {
+#endif
+#ifdef _MSC_VER
+#ifdef EXTERNAL_FUNCTION_EXPORT
+#  define EXTLIB2_EXPORT __declspec( dllexport )
+#else
+#  define EXTLIB2_EXPORT __declspec( dllimport )
+#endif
+#elif  __GNUC__ >= 4
+  /* In gnuc, all symbols are by default exported. It is still often useful,
+  to not export all symbols but only the needed ones */
+#  define EXTLIB2_EXPORT __attribute__ ((visibility("default")))
+#else
+#  define EXTLIB2_EXPORT
 #endif
 
-EXTLIB2_EXPORT void ExternalFunc2(<function arguments>); 
+EXTLIB2_EXPORT void ExternalFunc2(<function arguments>);
 
-#ifdef __cplusplus 
-} 
+#ifdef __cplusplus
+}
 #endif
 \end{lstlisting}
 {]}
@@ -2417,7 +2420,7 @@ And then the string handling functions:
 
 \begin{longtable}[]{|p{6.5cm}|p{8.5cm}|}
 \hline \endhead
-ModelicaAllocateString & 
+ModelicaAllocateString &
 \begin{tabular}{@{}p{8.cm}@{}}
 \emph{char* ModelicaAllocateString(size\_t len)} \\
 Allocate memory for a Modelica string which is used as return argument
@@ -2426,7 +2429,7 @@ arrays (= pointer to string array) is still provided by the calling
 program, as for any other array. If an error occurs, this function does
 not return, but calls "ModelicaError".
 \end{tabular}\\ \hline
-ModelicaAllocateStringWithErrorReturn & 
+ModelicaAllocateStringWithErrorReturn &
 \begin{tabular}{@{}p{8.cm}@{}}
 \emph{char*\newline ModelicaAllocateStringWithErrorReturn(size\_t len)}\\
 Same as
@@ -2581,3 +2584,5 @@ double interpolateMyTable(void* object, double u) {
 };
 \end{lstlisting}
 {]}
+
+\end{document}

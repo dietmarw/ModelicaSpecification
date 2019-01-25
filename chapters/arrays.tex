@@ -1,3 +1,6 @@
+\documentclass[../MLS.tex]{subfiles}
+\begin{document}
+
 \chapter{Arrays}\doublelabel{arrays}
 
 An array can be regarded as a collection of values, all of the same
@@ -248,7 +251,7 @@ sizes are provided:
 \hline
 \emph{Modelica} & \emph{Explanation}\\ \hline
 \endhead
-ndims(A) & 
+ndims(A) &
 Returns the number of dimensions k of expression A, with k
 \textgreater{}= 0.
 \\ \hline
@@ -274,12 +277,12 @@ and arrays to scalars, vectors, or matrices by adding or removing
 scalar(A) & Returns the single element of array A. size(A,i) = 1 is required for 1
 \textless{}= i \textless{}= ndims(A).\\ \hline
 vector(A)
-& 
+&
 Returns a 1-vector, if A is a scalar and otherwise returns a vector
 containing all the elements of the array, provided there is at most one
 dimension size \textgreater{} 1.\\ \hline
 matrix(A)
-& 
+&
 Returns promote(A,2), if A is a scalar or vector and otherwise returns
 the elements of the first two dimensions as a matrix. size(A,i) = 1 is
 required for 2 \textless{} i \textless{}= ndims(A).\\ \hline
@@ -480,7 +483,7 @@ see \autoref{types-as-iteration-ranges}.
 \endhead
 sum & Integer or Real & zeros(\ldots{})\\ \hline
 product & Scalar Integer or Real & 1\\ \hline
-min & Scalar enumeration, Boolean, Integer or Real & 
+min & Scalar enumeration, Boolean, Integer or Real &
 \begin{tabular}{@{}p{6cm}@{}}
 Greatest value of type\\( Modelica.Constants.inf for Real)
 \end{tabular}\\ \hline
@@ -700,7 +703,7 @@ where \lstinline!n = max(2, ndims(A), ndims(B), ndims(C), ....)!. If necessary, 
   dimensions which will be at least two.
 \item
   \emph{Concatenation along second dimension}:\\
-\lstinline![A, B, C, ...] = cat(2, promote(A,n), promote(B,n), promote(C,n), ...)! 
+\lstinline![A, B, C, ...] = cat(2, promote(A,n), promote(B,n), promote(C,n), ...)!
 where \lstinline!n = max(2, ndims(A), ndims(B), ndims(C), ....)!. If necessary, 1-sized
   dimensions are added to the right of A, B, C before the operation is
   carried out, especially that each operand has at least two dimensions.
@@ -1291,3 +1294,5 @@ sizes, i.e.,
 D*u
 
 {]}
+
+\end{document}

@@ -1,3 +1,6 @@
+\documentclass[../MLS.tex]{subfiles}
+\begin{document}
+
 \chapter{Classes, Predefined Types, and Declarations}\doublelabel{class-predefined-types-and-declarations}
 
 The fundamental structuring unit of modeling in Modelica is the class.
@@ -112,22 +115,22 @@ following syntactic rules:
 \begin{lstlisting}[language=grammar]
 component-clause:
   type-prefix type-specifier [ array-subscripts ] component-list
-  
+
 type-prefix :
   [ flow | stream ]
   [ discrete | parameter | constant ] [ input | output ]
-  
+
 type-specifier :
   name
   component-list :
   component-declaration { "," component-declaration }
-  
+
 component-declaration :
   declaration [ condition-attribute ] comment
-  
+
 condition-attribute:
   if expression
-  
+
 declaration :
   IDENT [ array-subscripts ] [ modification ]
 \end{lstlisting}
@@ -475,7 +478,7 @@ end A;
 parameter A a;
   // a.pi is a constant
   // a.y and a.i are parameters
-  
+
 A b;
   // b.pi is a constant
   // b.y is a continuous-time variable
@@ -559,14 +562,14 @@ special variants described in later sections.
 
 \begin{lstlisting}[language=grammar]
 class-definition :
-  [ encapsulated ] class-prefixes  
+  [ encapsulated ] class-prefixes
   class-specifier
-  
+
 class-prefixes :
   [ partial ]
   ( class | model | [ operator ] record | block | [ expandable ] connector | type |
   package | [ ( pure | impure ) ] [ operator ] function | operator )
-  
+
 class-specifier :
   long-class-specifier | short-class-specifier | der-class-specifier
 
@@ -574,18 +577,18 @@ long-class-specifier :
   IDENT string-comment composition end IDENT
   | extends IDENT [ class-modification ] string-comment composition
   end IDENT
-  
+
 short-class-specifier :
   IDENT "=" base-prefix name [ array-subscripts ]
   [ class-modification ] comment
   | IDENT "=" enumeration "(" ( [enum-list] | ":" ) ")" comment
-  
+
 der-class-specifier :
   IDENT "=" der "(" name "," IDENT { "," IDENT } ")" comment
-  
+
 base-prefix :
   [ input | output ]
-  
+
 enum-list : enumeration-literal { "," enumeration-literal}
 
 enumeration-literal : IDENT comment
@@ -729,7 +732,7 @@ model Integrators = Integrator[3]; // Legal
 
 model IllegalModel
   extends Integrators;
-  Real x; // Illegal combination of component and array class 
+  Real x; // Illegal combination of component and array class
 end IllegalModel;
 
 connector IllegalConnector
@@ -779,7 +782,7 @@ Moreover, they have additional properties called enhancements. The
 following table summarizes the definition of the specialized classes
 (additional restrictions on inheritance are in \autoref{restrictions-on-the-kind-of-base-class}):
 
-\begin{longtable}{|p{4cm}|p{9cm}|} 
+\begin{longtable}{|p{4cm}|p{9cm}|}
 \hline \endhead
 \textbf{record} & Only public sections are allowed in the definition or
 in any of its components (i.e., equation, algorithm, initial equation,
@@ -1086,9 +1089,9 @@ model Capacitor
   Pin p, n;
   Real u;
 equation
-  0 = p.i + n.i; 
+  0 = p.i + n.i;
   u = p.v - n.v;
-  C*der(u) = p.i; 
+  C*der(u) = p.i;
 end Capacitor;
 \end{lstlisting}
 
@@ -1143,9 +1146,9 @@ model Capacitor
   extends TwoPin;
   Real u;
 equation
-  0 = p.i + n.i; 
+  0 = p.i + n.i;
   u = p.v - n.v;
-  C*der(u) = p.i; 
+  C*der(u) = p.i;
 end Capacitor;
 
 model Circuit
@@ -1206,7 +1209,7 @@ partial model BaseProperties
   SI.Temperature            T;
   SI.Density                d;
   SI.SpecificInternalEnergy u;
-  
+
   connector InputAbsolutePressure = input SI.AbsolutePressure;
   connector InputSpecificEnthalpy = input SI.SpecificEnthalpy;
   connector InputMassFraction = input SI.MassFraction;
@@ -1630,7 +1633,7 @@ where Integer(E.e1) =1, Integer(E.en) = n, for an enumeration type
 E=enumeration(e1, \ldots{}, en).
 
 String(E.enumvalue) gives the string representation of the enumeration
-value. 
+value.
 
 {[}\emph{Example:} String(E.Small) \emph{gives
 "}Small\emph{".}{]}
@@ -1753,3 +1756,5 @@ A number of ``predefined'' record types and enumeration types for
 graphical annotations are described in \autoref{annotations}. These types are not
 predefined in the usual sense since they cannot be referenced in
 ordinary Modelica code, only within annotations.
+
+\end{document}

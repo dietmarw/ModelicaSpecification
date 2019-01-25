@@ -1,3 +1,6 @@
+\documentclass[../MLS.tex]{subfiles}
+\begin{document}
+
 \chapter{Modelica DAE Representation}\doublelabel{modelica-dae-representation}
 
 In this appendix, the mapping of a Modelica model into an appropriate
@@ -114,14 +117,14 @@ are reinitialized according to the following iteration procedure:
 
 \begin{lstlisting}[language=modelica]
     known  variables: x, t, p
-    unkown variables: dx/dt, y, m, pre(m), c 
+    unkown variables: dx/dt, y, m, pre(m), c
 
    // pre(m) = value of m before event occured
    loop
       solve (1) for the unknowns, with pre(m) fixed
       if m == pre(m) then break
-      pre(m) := m    
-   end loop 
+      pre(m) := m
+   end loop
 \end{lstlisting}
 Solving (\ref{eq:hydrid-dae}) for the unknowns is non-trivial, because this set of 
 equations contains not only Real, but also Boolean and Integer unknowns.
@@ -160,3 +163,5 @@ solving these systems of equations. Often, (\ref{eq:dae}) is just a linear syste
 of equations in these unknowns, so that the solution is straightforward.
 This procedure is especially useful for real-time simulation where
 usually explicit one-step methods are used.
+
+\end{document}

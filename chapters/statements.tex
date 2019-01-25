@@ -1,3 +1,6 @@
+\documentclass[../MLS.tex]{subfiles}
+\begin{document}
+
 \chapter{Statements and Algorithm Sections}\doublelabel{statements-and-algorithm-sections}
 
 Whereas equations are very well suited for physical modeling, there are
@@ -356,7 +359,7 @@ function findValue "Returns position of val or 0 if not found"
   output Integer index;
 algorithm
   index := size(x,1);
-  while index >= 1 loop 
+  while index >= 1 loop
     if x[index]== val then
       break;
       else
@@ -509,7 +512,7 @@ algorithm
   b1:={x>1, ..., y>p};
   b2:=x>y.start;
   if edge(b1[1]) or edge(b1[2]) or ...
-    edge(b1[N]) then 
+    edge(b1[N]) then
     ...
     elseif edge(b2) then
     ...
@@ -537,3 +540,5 @@ algorithm.
 See \autoref{terminate}. The terminate statement may not be in functions; In
 an algorithm outside a function it does not stop the execution of the
 current algorithm.
+
+\end{document}

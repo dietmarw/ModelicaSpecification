@@ -1,3 +1,6 @@
+\documentclass[../MLS.tex]{subfiles}
+\begin{document}
+
 \chapter{Operators and Expressions}\doublelabel{operators-and-expressions}
 
 The lexical units are combined to form even larger building blocks such
@@ -51,7 +54,7 @@ the table:
 \caption{Operators}
 \begin{tabular}{|p{5cm}|p{5cm}|p{4cm}|}
 \hline
-\emph{Operator Group} & \emph{Operator Syntax} & \emph{Examples}\\ \hline 
+\emph{Operator Group} & \emph{Operator Syntax} & \emph{Examples}\\ \hline
 postfix array index operator & {[}{]} & arr{[}index{]}\\ \hline
 postfix access operator & . & a.b\\ \hline
 postfix function call & \emph{funcName}(\emph{function-arguments}) & sin(4.36)\\ \hline
@@ -64,7 +67,7 @@ array construct/concat
 exponentiation & \^{} & 2\^{}3\\ \hline
 multiplicative and array elementwise multiplicative & * / .* ./ & 2*3 2/3 {[}1,2;3,4{]}.*{[}2,3;5,6{]} \\ \hline
 additive and array elementwise additive & + - +\emph{expr} -\emph{expr} .+ .- & {[}1,2;3,4{]}.+{[}2,3;5,6{]}\\ \hline
-relational & \textless{} \textless{}= \textgreater{} \textgreater{}= == \textless{}\textgreater{} & 
+relational & \textless{} \textless{}= \textgreater{} \textgreater{}= == \textless{}\textgreater{} &
 a\textless{}b, a\textless{}=b, a\textgreater{}b, ...\\ \hline
 unary negation & not \emph{expr} & not b1\\ \hline
 logical and & and & b1 and b2\\ \hline
@@ -166,13 +169,13 @@ arithmetic-expression :
 
 add-operator :
    "+" | "-"
-   
+
 term :
    factor { mul-operator factor }
 
 mul-operator :
    "*" | "/"
-   
+
 factor :
    primary [ "^" primary ]
 \end{lstlisting}
@@ -209,16 +212,16 @@ operators.
 \begin{lstlisting}[language=grammar]
 logical-expression :
    logical-term { or logical-term }
-  
+
 logical-term :
    logical-factor { and logical-factor }
-   
+
 logical-factor :
    [ not ] relation
-   
+
 relation :
    arithmetic-expression [ relational-operator arithmetic-expression ]
-   
+
 relational-operator :
    "<" | "<=" | ">" | ">=" | "==" | "<>"
 \end{lstlisting}
@@ -511,8 +514,8 @@ and can be called directly without any package prefix added to the
 function name. They are also available as external built-in functions in
 the Modelica.Math library.
 
-\begin{longtable}{|c|p{8cm}|} 
-\hline \endhead 
+\begin{longtable}{|c|p{8cm}|}
+\hline \endhead
 sin(\emph{x}) & sine\\ \hline
 cos(\emph{x}) & cosine\\ \hline
 tan(\emph{x}) & tangent (x shall not be: ..., -$\pi$/2, $\pi$/2, 3$\pi$/2,
@@ -542,7 +545,7 @@ with named arguments (with the specified names), or with positional
 arguments (the inputs of the functions are in the order given in the
 calls below).
 
-\begin{longtable}{|p{5.1cm}|p{8cm}|} 
+\begin{longtable}{|p{5.1cm}|p{8cm}|}
 \hline \endhead
 der(expr) & The time derivative of expr. If the expression expr is a
 scalar it needs to be a subtype of Real. The expression and all its
@@ -554,7 +557,7 @@ same size as the variable.}{]}\\ \hline
 \begin{tabular}{@{}p{5.1cm}@{}}
 delay(expr,delayTime,delayMax)\\
 delay(expr,delayTime)
-\end{tabular} & 
+\end{tabular} &
 Returns: expr(time--delayTime) for~ time\textgreater{}time.start +
 delayTime and expr(time.start) for time \textless{}= time.start +
 delayTime. The arguments, i.e., expr, delayTime and delayMax, need to be
@@ -592,8 +595,8 @@ vectorized according to \autoref{scalar-functions-applied-to-array-arguments}.\\
 \begin{tabular}{@{}p{5.1cm}@{}}
 semiLinear(x,\\
 positiveSlope,
-negativeSlope) 
-\end{tabular}& 
+negativeSlope)
+\end{tabular}&
 Returns:
 smooth(0, if x\textgreater{}=0 then positiveSlope*x else
 negativeSlope*x).
@@ -615,7 +618,7 @@ in0=in0, in1=in1, x=x,\\
 positiveVelocity=\ldots{},\\
 initialPoints=\ldots{},\\
 initialValues=\ldots{})
-\end{tabular} & 
+\end{tabular} &
 The spatialDistribution(\ldots{}) operator allows approximation of
 variable-speed transport of properties, see \autoref{spatialdistribution}.\\ \hline
 getInstanceName() & Returns a string with the name of the model/block
@@ -919,7 +922,7 @@ typical voltage source would then be defined as:}
 
 \begin{lstlisting}[language=modelica]
 model ConstantVoltageSource
-  extends Modelica.Electrical.Analog.Interfaces.OnePort; 
+  extends Modelica.Electrical.Analog.Interfaces.OnePort;
   parameter Modelica.SIunits.Voltage V;
 equation
   v = homotopy(actual=V, simplified=0.0);
@@ -1083,7 +1086,7 @@ The following event-related operators with function syntax are
 supported. The operators noEvent, pre, edge, and change, are
 vectorizable according to \autoref{scalar-functions-applied-to-array-arguments}
 
-\begin{longtable}{|p{5cm}|p{8cm}|} 
+\begin{longtable}{|p{5cm}|p{8cm}|}
 \hline \endhead
 initial() & Returns true during the initialization phase and false
 otherwise {[}\emph{thereby triggering a time event at the beginning of a
@@ -1359,3 +1362,5 @@ All expressions are continuous-time expressions including constant,
 parameter and discrete expressions. The term ``non-discrete-time
 expression'' refers to expressions that are not constant, parameter or
 discrete expressions.
+
+\end{document}
